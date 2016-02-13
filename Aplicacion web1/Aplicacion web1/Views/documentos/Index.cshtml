@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Proyecto_Web.documentos>
+﻿@model IEnumerable<Aplicacion_web1.documentos>
 
 @{
     ViewBag.Title = "Index";
@@ -89,9 +89,9 @@
             @Html.DisplayFor(modelItem => item.Fecha_registro)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { item.id_doc }) |
-            @Html.ActionLink("Detail", "Detail", new { item.id_doc }) |
-            @Html.ActionLink("Delete", "Delete", new { item.id_doc })
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_doc }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_doc }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_doc })
         </td>
     </tr>
 }

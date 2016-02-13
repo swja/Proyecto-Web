@@ -6,13 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using Proyecto_Web;
+using Aplicacion_Web;
 
-namespace Proyecto_Web.Controllers
+namespace Aplicacion_Web.Controllers
 {
     public class documentosController : Controller
     {
-        private CnxModel db = new CnxModel();
+        private ModelCNX db = new ModelCNX();
 
         // GET: documentos
         public ActionResult Index()
@@ -22,13 +22,13 @@ namespace Proyecto_Web.Controllers
         }
 
         // GET: documentos/Details/5
-        public ActionResult Details(int? id_doc)
+        public ActionResult Details(int? id)
         {
-            if (id_doc == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id_doc);
+            documentos documentos = db.documentos.Find(id);
             if (documentos == null)
             {
                 return HttpNotFound();
@@ -62,18 +62,18 @@ namespace Proyecto_Web.Controllers
         }
 
         // GET: documentos/Edit/5
-        public ActionResult Edit(int? id_doc)
+        public ActionResult Edit(int? id)
         {
-            if (id_doc == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id_doc);
+            documentos documentos = db.documentos.Find(id);
             if (documentos == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id_tipo_doc = new SelectList(db.tipo_documento, "id_doc", "Tipo_doc", documentos.id_tipo_doc);
+            ViewBag.id_tipo_doc = new SelectList(db.tipo_documento, "id_tipo_doc", "Tipo_doc", documentos.id_tipo_doc);
             return View(documentos);
         }
 
@@ -82,7 +82,7 @@ namespace Proyecto_Web.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_tipo_doc,Cedula,Nom_doc_encon,Ape_doc_encon,Ced_per_encon,Nom_pers_encon,Ape_perso_encon,Nmr_contacto,Email_contacto,Lugar_encon,Fecha_registro")] documentos documentos)
+        public ActionResult Edit([Bind(Include = "id_doc,id_tipo_doc,Cedula,Nom_doc_encon,Ape_doc_encon,Ced_per_encon,Nom_pers_encon,Ape_perso_encon,Nmr_contacto,Email_contacto,Lugar_encon,Fecha_registro")] documentos documentos)
         {
             if (ModelState.IsValid)
             {
@@ -95,13 +95,13 @@ namespace Proyecto_Web.Controllers
         }
 
         // GET: documentos/Delete/5
-        public ActionResult Delete(int? id_doc)
+        public ActionResult Delete(int? id)
         {
-            if (id_doc == null)
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id_doc);
+            documentos documentos = db.documentos.Find(id);
             if (documentos == null)
             {
                 return HttpNotFound();
@@ -112,9 +112,9 @@ namespace Proyecto_Web.Controllers
         // POST: documentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id_doc)
+        public ActionResult DeleteConfirmed(int id)
         {
-            documentos documentos = db.documentos.Find(id_doc);
+            documentos documentos = db.documentos.Find(id);
             db.documentos.Remove(documentos);
             db.SaveChanges();
             return RedirectToAction("Index");
