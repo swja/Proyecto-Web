@@ -22,13 +22,13 @@ namespace Aplicacion_web1.Controllers
         }
 
         // GET: documentos/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id_doc)
         {
-            if (id == null)
+            if (id_doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id);
+            documentos documentos = db.documentos.Find(id_doc);
             if (documentos == null)
             {
                 return HttpNotFound();
@@ -62,13 +62,13 @@ namespace Aplicacion_web1.Controllers
         }
 
         // GET: documentos/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id_doc)
         {
-            if (id == null)
+            if (id_doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id);
+            documentos documentos = db.documentos.Find(id_doc);
             if (documentos == null)
             {
                 return HttpNotFound();
@@ -95,13 +95,13 @@ namespace Aplicacion_web1.Controllers
         }
 
         // GET: documentos/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(int? id_doc)
         {
-            if (id == null)
+            if (id_doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id);
+            documentos documentos = db.documentos.Find(id_doc);
             if (documentos == null)
             {
                 return HttpNotFound();
@@ -112,9 +112,9 @@ namespace Aplicacion_web1.Controllers
         // POST: documentos/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(int id_doc)
         {
-            documentos documentos = db.documentos.Find(id);
+            documentos documentos = db.documentos.Find(id_doc);
             db.documentos.Remove(documentos);
             db.SaveChanges();
             return RedirectToAction("Index");
