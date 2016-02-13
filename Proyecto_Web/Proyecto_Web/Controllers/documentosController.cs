@@ -22,13 +22,13 @@ namespace Proyecto_Web.Controllers
         }
 
         // GET: documentos/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? id_doc)
         {
-            if (id == null)
+            if (id_doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id);
+            documentos documentos = db.documentos.Find(id_doc);
             if (documentos == null)
             {
                 return HttpNotFound();
@@ -62,18 +62,18 @@ namespace Proyecto_Web.Controllers
         }
 
         // GET: documentos/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(int? id_doc)
         {
-            if (id == null)
+            if (id_doc == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            documentos documentos = db.documentos.Find(id);
+            documentos documentos = db.documentos.Find(id_doc);
             if (documentos == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.id_tipo_doc = new SelectList(db.tipo_documento, "id_tipo_doc", "Tipo_doc", documentos.id_tipo_doc);
+            ViewBag.id_tipo_doc = new SelectList(db.tipo_documento, "id_doc", "Tipo_doc", documentos.id_tipo_doc);
             return View(documentos);
         }
 

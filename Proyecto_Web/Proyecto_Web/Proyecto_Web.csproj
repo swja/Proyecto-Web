@@ -127,6 +127,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
+    <Content Include="Views\documentos\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -146,7 +147,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\documentos\Create.cshtml" />
     <Content Include="Views\documentos\Delete.cshtml" />
-    <Content Include="Views\documentos\Details.cshtml" />
     <Content Include="Views\documentos\Edit.cshtml" />
     <Content Include="Views\documentos\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

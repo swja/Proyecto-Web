@@ -12,6 +12,9 @@
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(model => model.id_doc)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.tipo_documento.Tipo_doc)
         </th>
         <th>
@@ -50,6 +53,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.id_doc)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.tipo_documento.Tipo_doc)
         </td>
         <td>
@@ -84,7 +90,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Detail", "Detail", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
