@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI.WebControls;
 using Aplicacion_Web;
 
 namespace Aplicacion_Web.Controllers
@@ -128,5 +129,19 @@ namespace Aplicacion_Web.Controllers
             }
             base.Dispose(disposing);
         }
+        protected void Login1_Authenticate(object sender, AuthenticateEventArgs e)
+        {
+            bool Autenticado = false;
+            Autenticado = LoginCorrecto(Logins.UserName, Logins.Password);
+            e.Authenticated = Autenticado; if (Autenticado)
+            {
+                Response.Redirect("Default.aspx");
+            }
+            
     }
+                
+    }
+
 }
+
+

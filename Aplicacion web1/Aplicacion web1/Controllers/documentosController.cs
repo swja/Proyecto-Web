@@ -82,7 +82,7 @@ namespace Aplicacion_web1.Controllers
         // más información vea http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "id_doc,id_tipo_doc,Cedula,Nom_doc_encon,Ape_doc_encon,Ced_per_encon,Nom_pers_encon,Ape_perso_encon,Nmr_contacto,Email_contacto,Lugar_encon,Fecha_registro")] documentos documentos)
+        public ActionResult Edit([Bind(Include = "id_tipo_doc,Cedula,Nom_doc_encon,Ape_doc_encon,Ced_per_encon,Nom_pers_encon,Ape_perso_encon,Nmr_contacto,Email_contacto,Lugar_encon,Fecha_registro")] documentos documentos)
         {
             if (ModelState.IsValid)
             {

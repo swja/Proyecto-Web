@@ -123,6 +123,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Login\Login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +136,13 @@
     <Compile Include="Models\ModelCNX.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\tipo_documento.cs" />
+    <Compile Include="Views\Login\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -147,6 +155,7 @@
     <Content Include="Views\documentos\Details.cshtml" />
     <Content Include="Views\documentos\Edit.cshtml" />
     <Content Include="Views\documentos\Index.cshtml" />
+    <Content Include="Views\documentos\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
